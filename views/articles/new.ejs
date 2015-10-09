@@ -1,0 +1,45 @@
+<form action="/new" method="post">
+	<div class="form-group">
+		<label for="articleTitle">Article Title</label>
+		<input type="text"
+				name="Article[title]"
+				placeholder="Title">
+		
+
+		<label for="articleAuthor">Author</label>
+		<input type="text"
+				name="Article[_author]"
+				placeholder="Name">
+		
+		<label for="imageURL">Link to image</label>
+		<input type="text"
+				name="Article[imageURL]"
+				placeholder="link to image">
+		<label for="upload">Upload image</label>
+		 <div class="form-group">
+	    <label for="imageFileInput">File upload</label>
+	    <input type="file" id="imageFileInput">
+	    <p class="help-block">Upload your image</p>
+	 	 </div>
+	
+
+		<label for="body">Article body</label>
+		<textarea class="form-control" 
+					rows="5"
+					name="Article[body]"
+					placeholder="write away"></textarea>
+
+		<label for="tags">Tags</label>
+		<input type="text"
+				name="Article[tags]"
+				placeholder="enter comma separated tags">
+
+
+
+	
+	<input type="submit">
+
+</div>
+
+
+</form>

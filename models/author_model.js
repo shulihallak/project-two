@@ -5,7 +5,9 @@ var mongoose = require('mongoose'),
 
 var authorSchema = new Schema({
 	name: { type: String, required: true},
-	contact: String,
+	email: String,
+	password: String,
+	allArticles: [String]
 });
 
 

@@ -7,7 +7,7 @@ var express 		= require('express'),
 	bodyParser  	= require('body-parser'),
 	ejs 			= require('ejs'),
 	morgan 			= require('morgan'),
-	expressLayouts  = require('express-layouts'),
+	expressLayouts  = require('express-ejs-layouts'),
 	session 		= require('express-session'),
 	methodOverride 	= require('method-override');
 
@@ -15,50 +15,40 @@ var express 		= require('express'),
 server.use(bodyParser.urlencoded({
 	extended: true
 }));
-
-server.use(express.static('./public'));
-
 server.set('views', './views');
 server.set('view engine', 'ejs');
-
+server.use(express.static('./public'));
 
 server.use(session({
-	secret: 'I love my model kitchen',
+	secret: 'Best wiki ever',
 	resave: true,
 	saveUninitialized: true
 }));
-
 server.use(morgan('dev'));
 server.use(expressLayouts);
 server.use(methodOverride('_method'));
 
-server.get('/', function (req, res, next){
-	res.render('welcome');
-	next();
 
-})
+
+server.get('/welcome', function (req, res){
+	res.render('welcome')
+	
+});
 
 server.get('/secret-test', function (req, res) {
 	res.write("Welcome to my amazing app");
 	res.end();
 });
 
-
 mongoose.connect(MONGOURI + '/' + dbname);
 server.listen(PORT, function (){
 	console.log("SERVER IS UP ON PORT: ", PORT);
 });
 
-
-
-
-
-
-
-
-
-
-//Article controller
-
 var articleController = require('./controllers/article_controller.js');
-server.use('/counter', counterController);
+server.use('/articles', articleController);
+
+
+
+
+
