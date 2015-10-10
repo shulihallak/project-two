@@ -6,10 +6,10 @@ var articleSchema = new Schema({
 	title 	   : { type: String, required: true},
 	_author    : { type: String, required: true},
  	imageURL   : String,
- 	body       : String,
+ 	content       : String,
  	edits 	   : [String],
 	time  	   : { type : Date, default: Date.now },
-	categories : [String]
+	tags : [String]
 
 });
 

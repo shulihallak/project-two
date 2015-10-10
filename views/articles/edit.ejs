@@ -1,0 +1,49 @@
+<h3>Edit Article</h3>
+
+<form action="/articles/<%=Article._id%>/edit" method="PATCH">
+	<div>
+		<label for="articleTitle">Title: 
+			<input  type="text"
+					name="Article[title]"
+					placeholder="Edit title"
+					value="<%= Article.title %>">
+		</label>
+		<label for="article_author">Author: 
+			<input  type="text"
+					name="Article[_author]"
+					placeholder="Edit author name"
+					value="<%= Article._author %>">
+		</label>
+
+		<label for="articleContent">Content: 
+			<input  type="text"
+					name="Article[content]"
+					placeholder="Edit content"
+					value="<%= Article.content %>">
+		</label>
+		<label for="imageURL">URL links:</label>
+		<input type="text"
+				name="Article[imageURL]"
+				placeholder="edit links"
+				value="<%= Article.imageURL %>">
+
+		<label for="upload">Image uploads</label>
+		 <div class="form-group">
+	    <label for="imageFileInput">Edit files</label>
+	    <input type="file" id="imageFileInput">
+	    <p class="help-block">Upload your image</p>
+
+	 	 </div>
+		<label for="articleCategories">Categories: 
+			<input  type="text"
+					name="Article[categories]"
+					placeholder="Edit categories"
+					value="<%= Article.categories %>">
+		</label>
+
+	</div>
+
+
+
+
+</form>

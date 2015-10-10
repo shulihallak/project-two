@@ -2,7 +2,7 @@ var express 		= require('express'),
 	PORT 			= process.env.PORT || 3369,
 	server 			= express(),
 	MONGOURI 		= process.env.MONGOLAB_URI || 'mongodb://localhost:27017',
-	dbname      	= 'needsToBeChanged',
+	dbname      	= 'wiki-app',
 	mongoose		= require('mongoose');
 	bodyParser  	= require('body-parser'),
 	ejs 			= require('ejs'),
@@ -45,7 +45,7 @@ server.listen(PORT, function (){
 	console.log("SERVER IS UP ON PORT: ", PORT);
 });
 
-var articleController = require('./controllers/article_controller.js');
+var articleController = require('./controllers/articles_controller.js');
 server.use('/articles', articleController);
 
 
