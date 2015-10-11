@@ -38,6 +38,21 @@ router.post('/', function (req, res, next){
 	});
 });
 
+//show the article 
+router.get('/show/:id', function (req, res){
+	var articleID = req.params.id;
+
+	article.findById(articleID, function (err, foundArticle){
+		if (err){
+			return err;
+		} else {
+			res.render('articles/show', {
+				article: foundArticle
+			});
+		}
+	});
+});
+
 //Edit the article
 router.get('/:id/edit', function (req, res){
 	var articleID = req.params.id;
