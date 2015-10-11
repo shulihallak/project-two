@@ -71,20 +71,17 @@ router.patch('/:id', function (req, res){
 router.delete('/:id', function (req, res){
 	var articleID = req.params.id;
 
-		Article.remove({
-			_id: articleID
-		}, function (err) {
-			if (err) {
-				console.log(err);
-			} else {
-				res.redirect(302, '/articles');
-			}	
+	article.findByIdAndRemove(articleID, function (err){
+		if (err){
+			console.log(err);
+		} else {
+			res.redirect(302, '/articles');
+		} 
 	});
 });
 
 
 module.exports = router;
-
 
 
 

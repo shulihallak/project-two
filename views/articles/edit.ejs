@@ -40,14 +40,17 @@
 				name="article[categories]"
 				placeholder="enter comma separated categories"
 				value="<%= article.categories %>">
+
+		<label for="categories">date</label>
+		<input type="text"
+				name="article[created]"
+				placeholder="enter comma separated categories"
+				value="<%= article.categories %>">
 	
 	<input type="submit">
 
 </div>
- 	<form action="/articles/<%= article._id %>?_method=DELETE"
-            method="post">
+</form>
+ 	<form action="/articles/<%= article._id %>?_method=DELETE" method="post">
         <input type="submit" class="btn btn-default" value="Delete Article">
      </form>	
-
-</form>
-

@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose 	= require('mongoose');
+var Schema 		= mongoose.Schema;
+var timestamps  = require('mongoose-timestamp');
 
 var articleSchema = new Schema({
 title 	   : { type: String, required: true},
@@ -7,12 +8,15 @@ _author    : { type: String, required: true},
 imageURL   : String,
 content    : String,
 edits 	   : [String],
-created    : { type : Date, default: Date.now },
+created    : { type: Date, required: true, default: Date.now },
 categories : [String]
 });
 
 var article = mongoose.model('article', articleSchema);
 module.exports = article;
+
+
+
 // var userSchema = new Schema({
 //  email: String,
 //  password: String
