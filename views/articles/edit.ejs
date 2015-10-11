@@ -44,6 +44,10 @@
 	<input type="submit">
 
 </div>
-
+ 	<form action="/articles/<%= article._id %>?_method=DELETE"
+            method="post">
+        <input type="submit" class="btn btn-default" value="Delete Article">
+     </form>	
 
 </form>
+
