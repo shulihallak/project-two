@@ -42,13 +42,10 @@ router.post('/', function (req, res, next){
 router.get('/:id/edit', function (req, res){
 	var articleID = req.params.id;
 
-	article.findOne({
-		_id: articleID
-	}, function (err, foundArticle) {
+	article.findById(articleID, function (err, foundArticle){
 		if (err) {
-			console.log("ERROR FINDING ARTICLE");
-			console.log(err);
-		} else {	
+			console.log('something broke', err);
+		} else {
 			res.render('articles/edit', {
 				article: foundArticle
 			});
@@ -56,19 +53,35 @@ router.get('/:id/edit', function (req, res){
 	});
 });
 
+router.patch('/:id', function (req, res){
+	var articleID = req.params.id;
+	var articleParams = req.body.article;
+
+	article.findByIdAndUpdate(articleID, articleParams, function (err, updatedArticle) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.redirect(302, '/articles');
+		}
+	});
+});
 
 
 
-//Update edited article - go back to object
-// router.patch('/:id', function (req, res, next){
-// 	var articleID = req.params.id;
-// 	var articleParams = req.body.article;
-// });
+router.delete('/:id', function (req, res){
+	var articleID = req.params.id;
 
-//if delete is an option - remove single article by ID
-// router.delete('/:id', function (req, res, next){
+	Article.remove({
+		_id: articleID
+	}, function (err){
+		if (err) {
+			console.log(err);
+		} else {
+			res.redirect(302, '/articles');
+		}
+	});
+});
 
-// });
 
 module.exports = router;
 

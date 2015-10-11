@@ -1,10 +1,11 @@
-<form action="/articles/<%= article._id %>/edit?_method=PATCH" method="post">
+<form action="/articles/<%=article._id%>?_method=PATCH" method="post">
 	<div class="form-group">
 		<label for="articleTitle">article Title</label>
 		<input type="text"
 				name="article[title]"
 				placeholder="Title"
 				value="<%= article.title %>">
+
 		
 
 		<label for="articleAuthor">Author</label>
@@ -18,31 +19,27 @@
 				name="article[imageURL]"
 				placeholder="link to image">
 
-		<label for="body">article body</label>
-		<textarea class="form-control" 
-					rows="5"
-					name="article[content]"
-					placeholder="write away"
-					value="<%= article.content %>"></textarea>	
-
 		<label for="upload">Upload image</label>
 		 <div class="form-group">
 	    <label for="imageFileInput">File upload</label>
 	    <input type="file" id="imageFileInput">
+
 	    <p class="help-block">Upload your image</p>
 	 	 </div>
 	
 
-		
+		<label for="body">article body</label>
+		<textarea class="form-control" 
+					rows="5"
+					name="article[content]"
+					placeholder="write away">
+					<%= article.content %></textarea>
 
 		<label for="categories">categories</label>
 		<input type="text"
 				name="article[categories]"
 				placeholder="enter comma separated categories"
 				value="<%= article.categories %>">
-
-
-
 	
 	<input type="submit">
 
