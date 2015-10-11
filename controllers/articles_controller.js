@@ -1,13 +1,13 @@
 var express = require('express'),
 	router  = express.Router(),
-	Article = require('../models/article_model.js');
+	article = require('../models/article_model.js');
 
 
 /* Article routes */
 
 //Index - all articles
 router.get('/', function (req, res, next){
-	Article.find({}, function (err, articlesArray){
+	article.find({}, function (err, articlesArray){
 		if (err) {
 			console.log(err);
 		} else {
@@ -25,7 +25,8 @@ router.get('/new', function (req, res, next){
 
 //Create arcticle
 router.post('/', function (req, res, next){
-	var newArticle = new Article(req.body.Article);
+	console.log(req.body)
+	var newArticle = new article(req.body.article);
 	console.log(newArticle);
 
 	newArticle.save(function (err, article){
@@ -37,27 +38,40 @@ router.post('/', function (req, res, next){
 	});
 });
 
-//Show the article
-router.get('/:id', function (req, res, next){
+//Edit the article
+router.get('/:id/edit', function (req, res){
+	var articleID = req.params.id;
 
+	article.findOne({
+		_id: articleID
+	}, function (err, foundArticle) {
+		if (err) {
+			console.log("ERROR FINDING ARTICLE");
+			console.log(err);
+		} else {	
+			res.render('articles/edit', {
+				article: foundArticle
+			});
+		}
+	});
 });
 
-//Edit single article - show form
-router.get('/:id/edit', function (req, res, next){
 
-});
+
 
 //Update edited article - go back to object
-router.patch('/:id', function (req, res, next){
-
-});
+// router.patch('/:id', function (req, res, next){
+// 	var articleID = req.params.id;
+// 	var articleParams = req.body.article;
+// });
 
 //if delete is an option - remove single article by ID
-router.delete('/:id', function (req, res, next){
+// router.delete('/:id', function (req, res, next){
 
-});
+// });
 
 module.exports = router;
+
 
 
 
