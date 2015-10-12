@@ -1,0 +1,36 @@
+<form action="/authors/<%=author._id%>?_method=PATCH" method="post">
+<form action="/authors" method="post">
+	<div class="form-group">
+		<label for="authorName">Author Name</label>
+		<input type="text"
+				name="author[name]"
+				placeholder="<%= author.name %>">
+		
+
+		<label for="authorUsername">Username</label>
+		<input type="text"
+				name="author[username]"
+				placeholder="<%= author.username %>">
+		
+		<label for="profilePhoto">Profile photo</label>
+		<input type="text"
+				name="author[picture]"
+				placeholder="<%= author.picture %>">
+		
+	
+
+		<label for="bio">Bio</label>
+		<textarea class="form-control" 
+					rows="3"
+					name="author[bio]"
+					placeholder="<%= author.bio %>"></textarea>
+	
+	<input type="submit">
+
+</div>
+</form>
+
+</form>
+ 	<form action="/authors/<%= author._id %>?_method=DELETE" method="post">
+        <input type="submit" class="btn btn-default" value="Delete Author">
+     </form>	

@@ -12,7 +12,7 @@
 			<td><%= author.name %> </td>
 			<td> <%= author.username %></td>
 			<td> <%= author.bio %></td>
-			<td><a class="btn btn-default" href="/articles/show/<%= author._id %>" role="button">Go to Author Page</a>
+			<td><a class="btn btn-default" href="/authors/show/<%= author._id %>" role="button">Go to Author Page</a>
 			</td>
 			<td><a class="btn btn-default" href="/authors/<%= author._id %>/edit" role="button">Edit</a>
 			</td>
@@ -22,5 +22,5 @@
 
 </table>
 
-<a class="btn btn-primary" href="/articles/new" role="button">Create New Author</a>
+<a class="btn btn-primary" href="/authors/new" role="button">Create New Author</a>
 
