@@ -1,0 +1,30 @@
+<form action="/authors" method="post">
+	<div class="form-group">
+		<label for="authorName">Author Name</label>
+		<input type="text"
+				name="author[name]"
+				placeholder="Name">
+		
+
+		<label for="authorUsername">Username</label>
+		<input type="text"
+				name="author[username]"
+				placeholder="pick a username">
+		
+		<label for="profilePhoto">Profile photo</label>
+		<input type="text"
+				name="author[picture]"
+				placeholder="link to profile picture">
+		
+	
+
+		<label for="bio">Bio</label>
+		<textarea class="form-control" 
+					rows="3"
+					name="author[bio]"
+					placeholder="short bio, limit 1000 characters"></textarea>
+	
+	<input type="submit">
+
+</div>
+</form>

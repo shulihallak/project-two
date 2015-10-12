@@ -9,8 +9,8 @@ var express 		= require('express'),
 	ejs 			= require('ejs'),
 	morgan 			= require('morgan'),
 	expressLayouts  = require('express-ejs-layouts'),
-	session 		= require('express-session');
-	// timestamps		= require('mongoose-timestamp');
+	session 		= require('express-session'),
+	timestamps		= require('mongoose-timestamp');
 	
 
 
@@ -51,7 +51,7 @@ server.listen(PORT, function (){
 var articleController = require('./controllers/articles_controller.js');
 server.use('/articles', articleController);
 
-
-
+var authorController = require('./controllers/authors_controller.js');
+server.use('/authors', authorController);
 
 

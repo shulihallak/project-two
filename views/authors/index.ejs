@@ -1,0 +1,26 @@
+<h1>Author Index</h1>
+<table class="table table-hover">
+  	<thead>
+			<th>Name</th>
+			<th>Username</th>
+			<th>Bio</th>
+	</thead>
+
+<% authors.forEach(function (author, i) { %>
+	<tbody>	
+		<tr>
+			<td><%= author.name %> </td>
+			<td> <%= author.username %></td>
+			<td> <%= author.bio %></td>
+			<td><a class="btn btn-default" href="/articles/show/<%= author._id %>" role="button">Go to Author Page</a>
+			</td>
+			<td><a class="btn btn-default" href="/authors/<%= author._id %>/edit" role="button">Edit</a>
+			</td>
+		</tr>
+	</tbody>
+<% }); %>
+
+</table>
+
+<a class="btn btn-primary" href="/articles/new" role="button">Create New Author</a>
+

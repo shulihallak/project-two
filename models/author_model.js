@@ -1,20 +1,20 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
-
-
+var mongoose = require('mongoose');
+var Schema 	 = mongoose.Schema;
 
 var authorSchema = new Schema({
-	name: { type: String, required: true},
-	username: {
-		type: String,
-		trim: true
+	name 		: { type: String, required: true},
+	username 	: {
+		type 	: String,
+		trim 	: true
 	},
 	password: String,
-	allArticles: [String]
+	bio 		: { type: String, maxlength: 1000},
+	picture 	: String,
+	allArticles : [String]
 });
 
 
 
-var Author = mongoose.model('Author', authorSchema);
+var author = mongoose.model('author', authorSchema);
 
-module.exports = Author;
+module.exports = author;
