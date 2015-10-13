@@ -1,19 +1,26 @@
-<form action="/authors" method="post">
+
+
+
+
+<form id="articleNew" action="/authors" method="post">
 	<div class="form-group">
 		<label for="authorName">Author Name</label>
 		<input type="text"
 				name="author[name]"
+				class="form-control" 
 				placeholder="Name">
 		
 
 		<label for="authorUsername">Username</label>
 		<input type="text"
 				name="author[username]"
+				class="form-control" 
 				placeholder="pick a username">
 		
 		<label for="profilePhoto">Profile photo</label>
 		<input type="text"
 				name="author[picture]"
+				class="form-control" 
 				placeholder="link to profile picture">
 		
 	
@@ -22,6 +29,7 @@
 		<textarea class="form-control" 
 					rows="3"
 					name="author[bio]"
+					class="form-control" 
 					placeholder="short bio, limit 1000 characters"></textarea>
 	
 	<input type="submit">

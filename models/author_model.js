@@ -6,11 +6,12 @@ var authorSchema = new Schema({
 	username 	: {
 		type 	: String,
 		trim 	: true,
-		required: true
+		
 	},
-	password 	: { type: String, required: true},
-	bio 		: { type: String, maxlength: 1000},
-	allArticles : [String]
+	stories     : [{ type: Schema.ObjectId, ref: 'article' }],
+	password 	: { type: String},
+	bio 		: { type: String, maxlength: 1000}
+	
 });
 
 

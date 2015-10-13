@@ -4,30 +4,52 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   
     <title>Wiki App</title>
 
- <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 <link rel="stylesheet" href="/styles/style.css">
 
 
 
+
+
+
   </head>
-    <nav>
-    <div class="nav-fixed">
-      <a href="/articles/index" class="brand-logo">Wiki-app</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/authors">Authors</a></li>
-        <li><a href="/users/login">Login</a></li>
-        <li><a href="/users/signup">Sign up</a></li>
-      </ul>
+  <header>
+    <nav class="navbar navbar-default navbar-custom">
+  <div class="container-fluid">
+     <div class="navbar-header">
+   
+      <a class="navbar-brand" href="#">Wiki-App</a>
     </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+    
+        <li><a href="/articles">Article Index</a></li>
+        <li><a href="/authors">Authors</a></li>
+       
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+       
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    
+    </div>
+  </div>
   </nav>
   </header>
   <body>
@@ -35,12 +57,10 @@
     
     <%- body %>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>
-
-
-

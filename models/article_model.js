@@ -4,19 +4,24 @@ var timestamps  = require('mongoose-timestamp');
 
 var articleSchema = new Schema({
 title 	   : { type: String, required: true},
-_author    : { type: String, required: true},
-imageURL   : String,
-content    : String,
-edits 	   : [String],
-created    : { type: Date, required: true, default: Date.now },
+// _author    : { type: Schema.ObjectId, ref: 'author'},
+_author	   : { type: String},
+imageURL   : { type: String},
+content    : { type: String},
+// edits 	   : [String],
+createdAt    : { type: Date},
+updatedAt   : { type: Date}, 
 categories : [String]
 });
 
-articleSchema.plugin(timestamps);
+articleSchema.pre('save', function (done){
+	this.updatedAt = new Date();
+	done();
+});
+
 
 var article = mongoose.model('article', articleSchema);
 module.exports = article;
-
 
 
 // var userSchema = new Schema({

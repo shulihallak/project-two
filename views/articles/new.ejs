@@ -1,43 +1,40 @@
+<form  id="articleNew" action="/articles" method="post">
+      <div class="form-group">
 
-  <div class="row">
-    <form action="/articles" method="post" class="col 12"
-      <div class="row">
-        <div class="input-field col s6">
-     
-		<input type="text"
+     	<label for="articleTitle">Title</label>
+		<input 	class="form-control" 
+				type="text"
 				name="article[title]"
-				placeholder="">
-		<label for="articleTitle">article Title</label>
-        
+				id="input" 
+				placeholder="">		
         </div>
-        <div class="input-field col s6">
+  	<br>
+        <div class="form-group">
+        <label for="articleAuthor">Author</label>
 		<input type="text"
 				name="article[_author]"
-				placeholder="">
-		<label for="articleAuthor">Author</label>		
+				class="form-control" 
+				placeholder="">		
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-		<textarea class="materialize-textarea" 
+      <br>
+        <div class="form-group">
+        <label for="content">Content</label>
+		<textarea class="form-control" 
 					rows="5"
-					name="article[content]"
-					placeholder=""></textarea>
-		<label for="body">article body</label>
+					name="article[content]"></textarea>	
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-        
+      <br>
+        <div class="form-group">
+        <label for="categories">Categories</label>	
 		<input type="text"
 				name="article[categories]"
+				class="form-control" 
 				placeholder="">
-		 <label for="categories">categories</label>		
+		 	
         </div>
-      </div>
-  
-  </div>
 
+        <input type="submit">
+  </div>
 </form>
 
 <!-- 

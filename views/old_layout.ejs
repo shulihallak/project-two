@@ -1,27 +1,27 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   
     <title>Wiki App</title>
 
 
-  <!-- Compiled and minified CSS -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
           
 
-<!-- Latest compiled and minified JavaScript -->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="/styles/style.css">
 
 
-
+ -->
 
 
 
@@ -29,13 +29,12 @@
   <header>
     <nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+     <div class="navbar-header">
    
       <a class="navbar-brand" href="#">Wiki-App</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
     
@@ -54,21 +53,71 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </div>
+  </div>
+  </nav>
   </header>
   <body>
 
     
     <%- body %>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+<!-- MATERIALIZE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <title>Wiki App</title>
+
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
+
+
+          
+  </head>
+    
+
+  <body>
+
+    <nav>
+    <div class="nav-fixed black">
+      <a href="/articles/index" class="brand-logo">Wiki-app</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/users/login">Login</a></li>
+        <li><a href="/users/signup">Sign up</a></li>  
+      </ul>
+    </div>
+  </nav>
+  
+    
+    <%- body %>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+          
+  
+  </body>
+</html>
+
+
+
 
 
 

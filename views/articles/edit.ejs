@@ -1,56 +1,72 @@
-<form action="/articles/<%=article._id%>?_method=PATCH" method="post">
+<form id="articleNew" action="/articles/<%=article._id%>?_method=PATCH" method="post">
 	<div class="form-group">
 		<label for="articleTitle">article Title</label>
 		<input type="text"
 				name="article[title]"
-				placeholder="Title"
-				value="<%= article.title %>">
+				class="form-control"
+				value="<%=article.title %>">
 
-		
+		</div>
+		<div class="form-group">
 
 		<label for="articleAuthor">Author</label>
 		<input type="text"
 				name="article[_author]"
-				placeholder="Name"
-				value=" <%= article._author%>">
-		
+				class="form-control"
+				value="<%=article._author%>">
+		</div>
+		<div class="form-group">
+			<label for="content">Article content</label>
+			<textarea class="form-control" 
+						rows="5"
+						name="article[content]"
+						class="form-control"
+						value= "<%=article.content %>">
+						</textarea>
+		</div>
+			
+			<div class="form-group">
+			<label for="categories">categories</label>
+			<input type="text"
+					name="article[categories]"
+					value="<%=article.categories.join(' , ') %>"
+					class="form-control">
+					
+		</div>
+	<!-- 	<div class="form-group">
 		<label for="imageURL">Link to image</label>
 		<input type="text"
 				name="article[imageURL]"
 				placeholder="link to image">
-
+		</div> -->
+		
+		<!-- <div class="form-group">
 		<label for="upload">Upload image</label>
+		</div>
+
 		 <div class="form-group">
 	    <label for="imageFileInput">File upload</label>
-	    <input type="file" id="imageFileInput">
-
+	    <input type="file" id="imageFileInput"> 
 	    <p class="help-block">Upload your image</p>
-	 	 </div>
+	    </div> -->
+		
 	
-
-		<label for="body">article body</label>
-		<textarea class="form-control" 
-					rows="5"
-					name="article[content]"
-					placeholder="">
-					<%= article.content %></textarea>
-
-		<label for="categories">categories</label>
-		<input type="text"
-				name="article[categories]"
-				placeholder="enter comma separated categories"
-				value="<%= article.categories.join(' , ') %>">
-
-		<label for="categories">date</label>
+		
+	<!-- 	<div class="form-group">
+		<label for="date">date</label>
 		<input type="text"
 				name="article[created]"
 				placeholder=""
-				value="<%= article.created %>">
+				value="<%= article.created %>"
+				class="form-control">
+		</div> -->	
 	
 	<input type="submit">
 
 </div>
 </form>
- 	<form action="/articles/<%= article._id %>?_method=DELETE" method="post">
-        <input type="submit" class="btn btn-default" value="Delete Article">
-     </form>	
+ 	
+ <form id="articleNew" action="/articles/<%= article._id %>?_method=DELETE" method="post">
+   
+   <input type="submit" class="btn btn-default" value="Delete Article">
+  </form>	

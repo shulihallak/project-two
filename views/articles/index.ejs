@@ -1,10 +1,12 @@
 <h1>Article Index</h1>
+<div class="tableStyle">
 <table class="table table-hover">
   	<thead>
 			<th>Title</th>
 			<th>Author</th>
 			<th>Categories</th>
 			<th>Date Created</th>
+			<th>Date Updated</th>
 			<th></th>
 			<th>Edit</th>
 
@@ -16,7 +18,8 @@
 			<td><%= article.title %> </td>
 			<td> <%= article._author %></td>
 			<td> <%= article.categories.join(' & ') %></td>
-			<td><%=article.created %></td>
+			<td><%=article.createdAt %></td>
+			<td><%= article.updatedAt %></td>
 			<td><a class="btn btn-default" href="/articles/show/<%= article._id %>" role="button">Go to article</a>
 			</td>
 
@@ -30,6 +33,8 @@
 <% }); %>
 
 </table>
+
+</div>
 
 <a class="btn btn-primary" href="/articles/new" role="button">Create Article</a>
 

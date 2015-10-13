@@ -72,6 +72,7 @@ router.patch('/:id', function (req, res){
 	var articleID = req.params.id;
 	var articleParams = req.body.article;
 
+
 	article.findByIdAndUpdate(articleID, articleParams, function (err, updatedArticle) {
 		if (err) {
 			console.log(err);
