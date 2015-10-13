@@ -12,6 +12,8 @@ created    : { type: Date, required: true, default: Date.now },
 categories : [String]
 });
 
+articleSchema.plugin(timestamps);
+
 var article = mongoose.model('article', articleSchema);
 module.exports = article;
 

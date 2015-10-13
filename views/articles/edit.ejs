@@ -32,20 +32,20 @@
 		<textarea class="form-control" 
 					rows="5"
 					name="article[content]"
-					placeholder="write away">
+					placeholder="">
 					<%= article.content %></textarea>
 
 		<label for="categories">categories</label>
 		<input type="text"
 				name="article[categories]"
 				placeholder="enter comma separated categories"
-				value="<%= article.categories %>">
+				value="<%= article.categories.join(' , ') %>">
 
 		<label for="categories">date</label>
 		<input type="text"
 				name="article[created]"
-				placeholder="enter comma separated categories"
-				value="<%= article.categories %>">
+				placeholder=""
+				value="<%= article.created %>">
 	
 	<input type="submit">
 

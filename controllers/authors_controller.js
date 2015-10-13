@@ -26,10 +26,10 @@ router.get('/new', function (req, res, next){
 //Create author
 router.post('/', function (req, res, next){
 	console.log(req.body)
-	var newArticle = new author(req.body.author);
-	console.log(newArticle);
+	var newAuthor = new author(req.body.author);
+	console.log(newAuthor);
 
-	newArticle.save(function (err, author){
+	newAuthor.save(function (err, author){
 		if (err) {
 			console.log(err);
 		} else {

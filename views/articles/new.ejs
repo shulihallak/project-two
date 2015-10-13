@@ -1,3 +1,46 @@
+
+  <div class="row">
+    <form action="/articles" method="post" class="col 12"
+      <div class="row">
+        <div class="input-field col s6">
+     
+		<input type="text"
+				name="article[title]"
+				placeholder="">
+		<label for="articleTitle">article Title</label>
+        
+        </div>
+        <div class="input-field col s6">
+		<input type="text"
+				name="article[_author]"
+				placeholder="">
+		<label for="articleAuthor">Author</label>		
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+		<textarea class="materialize-textarea" 
+					rows="5"
+					name="article[content]"
+					placeholder=""></textarea>
+		<label for="body">article body</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+        
+		<input type="text"
+				name="article[categories]"
+				placeholder="">
+		 <label for="categories">categories</label>		
+        </div>
+      </div>
+  
+  </div>
+
+</form>
+
+<!-- 
 <form action="/articles" method="post">
 	<div class="form-group">
 		<label for="articleTitle">article Title</label>
@@ -42,4 +85,4 @@
 </div>
 
 
-</form>
+</form> -->

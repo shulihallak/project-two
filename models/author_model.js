@@ -5,11 +5,11 @@ var authorSchema = new Schema({
 	name 		: { type: String, required: true},
 	username 	: {
 		type 	: String,
-		trim 	: true
+		trim 	: true,
+		required: true
 	},
-	password: String,
+	password 	: { type: String, required: true},
 	bio 		: { type: String, maxlength: 1000},
-	picture 	: String,
 	allArticles : [String]
 });
 

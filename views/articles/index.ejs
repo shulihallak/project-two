@@ -15,7 +15,7 @@
 		<tr>
 			<td><%= article.title %> </td>
 			<td> <%= article._author %></td>
-			<td> <%= article.categories %></td>
+			<td> <%= article.categories.join(' & ') %></td>
 			<td><%=article.created %></td>
 			<td><a class="btn btn-default" href="/articles/show/<%= article._id %>" role="button">Go to article</a>
 			</td>
