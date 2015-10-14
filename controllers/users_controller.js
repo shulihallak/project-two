@@ -55,17 +55,17 @@ router.get('/login', function (req, res){
 // 	}
 // });
 
+router.get('/login_error', function (req, res){
+	res.render('users/login_error');
+});
+
 router.post('/login', function (req, res){
 	var login = req.body.user;
-
-
-
-
 	user.findOne({ username: login.password}, function (err, user){
 		if (user && user.password === login.password){
 			res.redirect(302, '/users/show/' + user._id);
 		} else {
-
+			res.redirect(302, '/users/login_error');
 		}
 	})
 });

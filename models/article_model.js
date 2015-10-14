@@ -5,8 +5,8 @@ var Schema 		= mongoose.Schema;
 
 var articleSchema = new Schema({
 title 	   : { type: String, required: true},
-// _author    : { type: Schema.ObjectId, ref: 'author'},
-_author	   : { type: String},
+// _author    : { type: Schema.ObjectId, ref: 'user'},
+_author	   : { type: String, ref: 'user'},
 imageURL   : { type: String},
 content    : { type: String, trim: true},
 // edits 	   : [String],

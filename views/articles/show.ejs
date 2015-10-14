@@ -1,17 +1,14 @@
-<%= article._id %>
 
-
-<div class="container-fluid">
-	<div class="col-md-4"></div>
+<div class="panel panel-default">
+  <div class="panel-heading" id="panelColor">
+    <h3 class="panel-title"><%= article.title %> <h5>Author:  <%= article._author %> </h5></h3>
+  </div>
+  <div class="panel-body">
+   <%= article.content %>
+  </div>
+  <h5>Created: <%= article.createdAt %> </h5>
 </div>
-<h5>Title: <%= article.title %> </h5>
 
 
-<h5>Author: <%= article._author %> </h5>
 
-
-<h5>Content: <%= article.content %> </h5>
-
-
-<h5>Created: <%= article.createdAt %> </h5>
 
