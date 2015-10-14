@@ -18,22 +18,22 @@ var express 		= require('express'),
 	
 
 
-passport.use(new Strategy(
-	function (username, passord, cb){
-		user.findByUsername(username, function (err, user){
-			if (err) { return cb(err); }
-			if (!user) { return cb(null, false); }
-			if (user.password != password) { return cb(null, false); }
-			return cb(null, user);
-		});
-	}));
+// passport.use(new Strategy(
+// 	function (username, passord, cb){
+// 		user.findByUsername(username, function (err, user){
+// 			if (err) { return cb(err); }
+// 			if (!user) { return cb(null, false); }
+// 			if (user.password != password) { return cb(null, false); }
+// 			return cb(null, user);
+// 		});
+// 	}));
 
-passport.deserializeUser(function(id, cb) {
-  user.findById(id, function (err, user) {
-    if (err) { return cb(err); }
-    cb(null, user);
-  });
-});
+// passport.deserializeUser(function(id, cb) {
+//   user.findById(id, function (err, user) {
+//     if (err) { return cb(err); }
+//     cb(null, user);
+//   });
+// });
 
 
 server.use(bodyParser.urlencoded({
@@ -52,8 +52,8 @@ server.use(session({
 	saveUninitialized: true
 }));
 server.use(flash());
-server.use(passport.initialize());
-server.use(passport.session());
+// server.use(passport.initialize());
+// server.use(passport.session());
 
 server.use(morgan('dev'));
 server.use(expressLayouts);
