@@ -1,21 +1,17 @@
 <%= article._id %>
-<div class="page-header">
-  <h1> <%= article.title %> <br>
-  <small>Author:<%= article._author %> </small></h1>
-</div>
+
 
 <div class="container-fluid">
 	<div class="col-md-4"></div>
 </div>
+<h5>Title: <%= article.title %> </h5>
 
-<h4> Content: </h4>
-<h4> <%= article.content %> </h4>
 
-<h4>Categories:</h4>
-<h4> <%= article.categories %> </h4>
+<h5>Author: <%= article._author %> </h5>
 
-<h4>Edits:</h4>
-<h4> <%= article.edits %> </h4>
 
-<h4>Last update:</h4>
-<h4> <%= article.created %> </h4>
+<h5>Content: <%= article.content %> </h5>
+
+
+<h5>Created: <%= article.createdAt %> </h5>
+

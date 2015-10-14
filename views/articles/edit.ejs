@@ -20,10 +20,9 @@
 			<textarea class="form-control" 
 						rows="5"
 						name="article[content]"
-						class="form-control"
-						value= "<%=article.content %>">
-						</textarea>
+						class="form-control"><%= article.content %></textarea>
 		</div>
+
 			
 			<div class="form-group">
 			<label for="categories">categories</label>
@@ -67,6 +66,8 @@
 </form>
  	
  <form id="articleNew" action="/articles/<%= article._id %>?_method=DELETE" method="post">
+
+ <br>
    
    <input type="submit" class="btn btn-default" value="Delete Article">
   </form>	

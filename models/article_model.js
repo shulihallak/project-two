@@ -1,27 +1,33 @@
+var timestamps  = require('mongoose-timestamp');
 var mongoose 	= require('mongoose');
 var Schema 		= mongoose.Schema;
-var timestamps  = require('mongoose-timestamp');
+
 
 var articleSchema = new Schema({
 title 	   : { type: String, required: true},
 // _author    : { type: Schema.ObjectId, ref: 'author'},
 _author	   : { type: String},
 imageURL   : { type: String},
-content    : { type: String},
+content    : { type: String, trim: true},
 // edits 	   : [String],
-createdAt    : { type: Date},
+createdAt    : { type: Date, default: Date.now()},
 updatedAt   : { type: Date}, 
 categories : [String]
 });
 
-articleSchema.pre('save', function (done){
-	this.updatedAt = new Date();
-	done();
+articleSchema.pre('save', function(next){
+  now = new Date();
+  this.updated_at = now;
+  if ( !this.created_at ) {
+    this.created_at = now;
+  }
+  next();
 });
 
 
 var article = mongoose.model('article', articleSchema);
 module.exports = article;
+
 
 
 // var userSchema = new Schema({

@@ -1,0 +1,31 @@
+<h1>User Index</h1>
+<div class="tableStyle"></div>
+<table class="table table-hover">
+  	<thead>
+			<th>Full Name</th>
+			<th>Username</th>
+			<th>Articles</th>
+			<th>Details</th>
+			<th>Edit</th>
+	</thead>
+
+<% users.forEach(function (user, i) { %>
+	<tbody>	
+		<tr>
+			<td><%= user.fullName %> </td>
+			<td> <%= user.username %></td>
+			<td></td>
+			<td><a class="btn btn-default" href="/users/show/<%= user._id %>" role="button">Go to User Page</a>
+			</td>
+			<td><a class="btn btn-default" href="/users/<%= user._id %>/edit" role="button">Edit</a>
+			</td>
+		</tr>
+	</tbody>
+<% }); %>
+
+</table>
+
+</div>
+
+<a class="btn btn-primary" href="/users/new" role="button">Create New User</a>
+

@@ -30,6 +30,9 @@ router.post('/', function (req, res, next){
 	console.log(newArticle);
 
 	newArticle.save(function (err, article){
+		console.log(article.createdAt);
+		console.log(article.createdAt === article.updatedAt);
+
 		if (err) {
 			console.log(err);
 		} else {
@@ -37,6 +40,8 @@ router.post('/', function (req, res, next){
 		}
 	});
 });
+
+
 
 //show the article 
 router.get('/show/:id', function (req, res){
@@ -57,12 +62,15 @@ router.get('/show/:id', function (req, res){
 router.get('/:id/edit', function (req, res){
 	var articleID = req.params.id;
 
-	article.findById(articleID, function (err, foundArticle){
+	
+
+	article.findById(articleID, function (err, foundArticle, newTime){
 		if (err) {
 			console.log('something broke', err);
 		} else {
 			res.render('articles/edit', {
-				article: foundArticle
+				article: foundArticle,
+
 			});
 		}
 	});
@@ -71,6 +79,7 @@ router.get('/:id/edit', function (req, res){
 router.patch('/:id', function (req, res){
 	var articleID = req.params.id;
 	var articleParams = req.body.article;
+	var updatedAt = articleParams.updatedAt;
 
 
 	article.findByIdAndUpdate(articleID, articleParams, function (err, updatedArticle) {

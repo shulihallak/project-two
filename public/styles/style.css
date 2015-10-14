@@ -43,6 +43,28 @@
 
 }
 
+#userNew {
+	width: 2%;
+	display: inline-block;
+	left: 30%;
+	margin-top: 50px;
+	position: relative;
+
+}
+
+.form-group > label {
+	padding-top: 30px;
+}
+.form-horizontal {
+	
+}
+.jumbotron {
+	text-align: center;
+	background-color: lightpink;
+	width: 75%;
+	margin: 0 auto;
+}
+
 table {
 	width: 75%;
 }

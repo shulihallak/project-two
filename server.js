@@ -10,38 +10,75 @@ var express 		= require('express'),
 	morgan 			= require('morgan'),
 	expressLayouts  = require('express-ejs-layouts'),
 	session 		= require('express-session'),
+	cookieParser    = require('cookie-parser'),
+	flash 			= require('connect-flash'),
+	passport        = require('passport'),
+	Strategy 		= require('passport-local').Strategy,
 	timestamps		= require('mongoose-timestamp');
 	
+
+
+passport.use(new Strategy(
+	function (username, passord, cb){
+		user.findByUsername(username, function (err, user){
+			if (err) { return cb(err); }
+			if (!user) { return cb(null, false); }
+			if (user.password != password) { return cb(null, false); }
+			return cb(null, user);
+		});
+	}));
+
+passport.deserializeUser(function(id, cb) {
+  user.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
 
 
 server.use(bodyParser.urlencoded({
 	extended: true
 }));
+
 server.use(methodOverride('_method'));
 server.set('views', './views');
 server.set('view engine', 'ejs');
 server.use(express.static('./public'));
 
+server.use(cookieParser('secret'));
 server.use(session({
 	secret: 'Best wiki ever',
 	resave: true,
 	saveUninitialized: true
 }));
+server.use(flash());
+server.use(passport.initialize());
+server.use(passport.session());
+
 server.use(morgan('dev'));
 server.use(expressLayouts);
 
 
 
 
-// server.get('/welcome', function (req, res){
-// 	res.render('welcome')
-	
-// });
+server.use(function (req, res, next){
+	console.log(req.session);
+	console.log(req.body);
+	console.log(req.params);
+	next();
+});
 
-// server.get('/secret-test', function (req, res) {
-// 	res.write("Welcome to my amazing app");
-// 	res.end();
-// });
+
+server.get('/login', function (req, res){
+	res.render('users/login');
+});
+
+server.get('/login', function (req, res){
+	res.render('views/users/login');
+});
+
+// server.all('/users', requireAuthentication);
+
 
 mongoose.connect(MONGOURI + '/' + dbname);
 server.listen(PORT, function (){
@@ -51,7 +88,7 @@ server.listen(PORT, function (){
 var articleController = require('./controllers/articles_controller.js');
 server.use('/articles', articleController);
 
-var authorController = require('./controllers/authors_controller.js');
-server.use('/authors', authorController);
+var userController = require('./controllers/users_controller.js');
+server.use('/users', userController);
 
 

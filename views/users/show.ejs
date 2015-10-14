@@ -1,0 +1,26 @@
+<%= user._id %>
+
+
+<div class="container-fluid">
+	<div class="col-md-4"></div>
+</div>
+<h5>Name: <%= user.fullName %> </h5>
+
+
+<h5>Username: <%= user.username %> </h5>
+
+
+<h5>Password: <%= user.password %> </h5>
+
+
+
+
+<p>
+ID: <%= user.id %><br/>
+Username: <%= user.username %><br/>
+Name: <%= user.displayName %><br/>
+<% if (user.emails) { %>
+Email: <%= user.emails[0].value %><br/>
+<% } %>
+</p>
+<a href="/logout">Log out</a>
