@@ -7,6 +7,7 @@ var express = require('express'),
 
 //Index - all articles
 router.get('/', function (req, res, next){
+
 	article.find({}, function (err, articlesArray){
 		if (err) {
 			console.log(err);
@@ -20,12 +21,15 @@ router.get('/', function (req, res, next){
 
 //New article - show form
 router.get('/new', function (req, res, next){
-	res.render('articles/new');
+	
+	res.render('articles/new', {
+		currentUser: req.session.user
+	});
 });
 
 //Create arcticle
 router.post('/', function (req, res, next){
-	req.body.article._author = req.session.currentUser;
+	req.body.article.author = req.session.currentUser;
 
 	// req.session.currentUser <~ is the user object.
 	console.log(req.body)
@@ -37,6 +41,7 @@ router.post('/', function (req, res, next){
 		if (err) {
 			console.log(err);
 		} else {
+			console.log(article);
 			res.redirect(302, '/articles');
 		}
 	});
@@ -58,7 +63,8 @@ router.get('/show/:id', function (req, res){
 			return err;
 		} else {
 			res.render('articles/show', {
-				article: foundArticle
+				article: foundArticle,
+				currentUser: req.session.user
 			});
 		}
 	});
@@ -76,6 +82,7 @@ router.get('/:id/edit', function (req, res){
 		} else {
 			res.render('articles/edit', {
 				article: foundArticle,
+				currentUser: req.session.user
 
 			});
 		}

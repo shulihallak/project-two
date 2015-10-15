@@ -1,16 +1,33 @@
-<%= userId %>
-
-
-<div class="container-fluid">
-	<div class="col-md-4"></div>
+<div class="card" style="width:95%;margin:0 auto;margin-top:20px;padding:20px">
+   <div class="card-content">
+     <h3> <span class="card-title black-text">
+       Name: <%= user.fullName %></span>
+      </h3>
+  <hr>
+      <div id="content" class="section scrollspy">
+        <p>Username: <%= user.username %></p>
+       </div>
+       <div id="content" class="section scrollspy">
+         <p>Password: <%= user.password %></p>
+       </div>
+       <div id="content" class="section scrollspy">
+         <p>User ID: <%= user._id %></p>
+       </div>
+        <div id="media" class="section scrollspy">
+         <!--    <div class="card-image">
+            <img src="/media/S14_4847HD-2.jpg">
+            </div> -->
+       	</div>
+        <div id="links" class="section scrollspy">
+          <div class="card-action">
+          <a href="/users/<%= user._id %>/edit">Edit Info</a>
+         </div>
+        </div>
+  </div>
 </div>
-<h5>Name: <%= user.fullName %> </h5>
 
 
-<h5>Username: <%= user.username %> </h5>
 
-
-<h5>Password: <%= user.password %> </h5>
 
 
 

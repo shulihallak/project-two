@@ -8,6 +8,7 @@ var userSchema = new Schema({
 	stories     : [{ type: Schema.ObjectId, ref: 'article' }],
 	
 	bio 		: { type: String, maxlength: 1000}
+
 	
 });
 

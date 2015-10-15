@@ -32,15 +32,18 @@
 					rows="3"
 					name="user[bio]">"<%= user.bio %>"</textarea>
 		</div>
-	  <a class="waves-effect waves-light btn z-depth-0">Submit</a>
+		<button class="btn waves-effect waves-light z-depth-0" type="submit" name="action" style="margin-top:40px;">
+		Submit</button>
 	</div>
-	
 </form>
- 	<form action="/users/<%= user._id %>?_method=DELETE" method="post">
+
+<form action="/users/<%= user._id %>?_method=DELETE" method="post">
  	<br>
  	<br>
-       <a class="waves-effect waves-light btn z-depth-0">Delete User</a>
-     </form>	
-</form>
+ 	<button class="btn waves-effect waves-light z-depth-0" type="submit" name="action" style="margin-top:40px;">
+	Delete User</button>
+
+</form>	
+
 </div>
 </div>

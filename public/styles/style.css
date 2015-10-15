@@ -1,6 +1,13 @@
-body {
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-}
+  main {
+    flex: 1 0 auto;
+  }
+      
 
 .z-depth-0 {
   -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
@@ -18,24 +25,37 @@ table {
 	margin: 0 auto;
 }
 
+a {
+	color: #9DBDC6;
+}
+
 .btn-flat {
 	
-	color: #1a237e;
+	color: #272F32;
 	background-color: white;
 	border: 1px solid gray;
 	text-transform: uppercase;
 }
 
 .btn {
-	background-color: #8c9eff;
+	background-color: #9DBDC6;
 }
-.btn:hover{
-	background-color: #3949ab;
+.btn-floating{
+	background-color: #9DBDC6;
 }
+
+.btn:hover, #add:hover{
+	background-color: #272F32;
+}
+
+
 
 nav ul a,
 nav .brand-logo {
   color: #444;
+}
+.nav:hover{
+	background-color: #272F32;
 }
 
 form {

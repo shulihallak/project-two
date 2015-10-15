@@ -19,7 +19,7 @@
 	<tbody id="tableHover">	
 		<tr>
 			<td><%= article.title %> </td>
-			<td> <%= article._author %></td>
+			<td> <%= article.author %></td>
 			<td> <%= article.categories.join(' & ') %></td>
 			<td><%=article.createdAt %></td>
 			<td><%= article.updatedAt %></td>
@@ -39,7 +39,11 @@
 
 </div>
 <div style="margin-left:30px;margin-top:10px;">
-<a class="btn btn-default z-depth-0" href="/articles/new" role="button">Create New Article</a>
+
+ <a class="btn-floating btn-large waves-effect waves" id="add" href="/articles/new"><i class="material-icons">add</i></a>
+
+
+<!-- <a class="btn btn-default z-depth-0" href="/articles/new" role="button">Create New Article</a> -->
 
 </div>
 

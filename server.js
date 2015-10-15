@@ -10,7 +10,6 @@ var express 		= require('express'),
 	morgan 			= require('morgan'),
 	expressLayouts  = require('express-ejs-layouts'),
 	session 		= require('express-session'),
-	cookieParser    = require('cookie-parser'),
 	flash 			= require('connect-flash');
 	
 	
@@ -25,11 +24,11 @@ server.set('views', './views');
 server.set('view engine', 'ejs');
 server.use(express.static('./public'));
 
-server.use(cookieParser('secret'));
 server.use(session({
 	secret: 'Best wiki ever',
 	resave: true,
-	saveUninitialized: true
+	saveUninitialized: true,
+	expires: false
 }));
 server.use(flash());
 // server.use(passport.initialize());
@@ -47,16 +46,28 @@ server.use(function (req, res, next){
 	next();
 });
 
-server.use(function(req, res, next) {
+server.use(function (req, res, next) {
   // res.locals.requested = req.originalUrl;
   // res.locals.marked = marked;
-  res.locals.userId = req.session.userId || "guest";
-  res.locals.userName = req.session.userName || "Guest";
+  res.locals.userId   = req.session.currentUser || "guest";
+  res.locals.user 	  = req.session.user || "Guest";
+  res.locals.userName = req.session.fullName || "Guest";
   next();
 });
 
+
+function requireLogin(req, res, next){
+	if(!req.user) {
+		res.redirect('/login');
+	} else {
+		next();
+	}
+};
+
 server.get('/', function (req, res){
-	res.render('index');
+	res.render('index', {
+		user: req.session.user
+	});
 });
 
 server.get('/signin', function (req, res){

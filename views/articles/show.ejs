@@ -1,22 +1,45 @@
 
+
 <div class="row">
-  <div class="col s12">
+<div class="col s12">
+  <!-- scrollspy -->
+    <div class="col hide-on-small-only m3 l2">
+      <ul class="section table-of-contents">
+        <li><a href="#content">Content</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#author">Author</a></li>
+      </ul>
+    </div>
+  
     <div class="card">
       <div class="card-content">
-        <h3> <span class="card-title black-text"><%= article.title %></span></h3>
-          <p><%= article.content %></p>
-         
-    
-  <!--    <div class="card-image">
-      <img src="/media/S14_4847HD-2.jpg">
-    </div> -->
-        <div class="card-action">
+        <h3> <span class="card-title black-text">
+        <%= article.title %></span></h3>
+        <hr>
+
+        <div id="content" class="section scrollspy">
+          <p ><%= article.content %></p>
+        </div>
+        <div id="media" class="section scrollspy">
+          <!--   <div class="card-image">
+            <img src="/media/S14_4847HD-2.jpg">
+            </div> -->
+        </div>
+        <div id="links" class="section scrollspy">
+          <div class="card-action">
           <p>Created: <%= article.createdAt %> </p>
           <a href="#">This is a link</a>
+          </div>
+          <div id="author" class="section scrollspy">
+          <p>Author: <%=article.author %></p>
+          <p>Article id: <%=article._id%></p>
         </div>
         </div>
      </div>
    </div>
 </div>
+
+
 
 

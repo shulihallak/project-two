@@ -5,8 +5,27 @@ var express = require('express'),
 
 
 /* User routes */
+function requireLogin(req, res, next){
+	if(!req.user) {
+		res.redirect('/');
+	} else {
+		next();
+	}
+};
 
-
+// server.use(function (req, res, next){
+// 	if(req.session && req.session.user){
+// 		User.findOne({ username: req.session.user.username}, function (err, user){
+// 			if(user) {
+// 				req.user = user;
+// 				req.session.user = user;
+// 				res.locals.user = user;
+// 			}
+// 		});
+// 	} else {
+// 		next();
+// 	}
+// });
 
 //Index - all users
 router.get('/', function (req, res, next){
@@ -15,7 +34,8 @@ router.get('/', function (req, res, next){
 			console.log(err);
 		} else {
 			res.render('users/index', {
-				users: usersArray
+				users: usersArray,
+				currentUser: req.session.user
 			});
 		};
 	});
@@ -23,7 +43,10 @@ router.get('/', function (req, res, next){
 
 //New user - show form
 router.get('/new', function (req, res, next){
-	res.render('users/new');
+	res.render('users/new', {
+		currentUser: req.session.user
+	});
+	
 });
 
 //Create user
@@ -37,19 +60,21 @@ router.post('/', function (req, res, next){
 			console.log(err);
 		} else {
 			console.log(user);
-			req.session.currentUser = user;
+			req.session.currentUser = user.username;
 			res.redirect(302, '/users/show/' + user._id);
 		}
 	});
 });
 
+
+router.get('/login_error', function (req, res){
+	res.render('users/login_error');
+});
+
 router.get('/login', function (req, res){
-	if(!req.session.currentUser){
-		res.render('users/login');
-	} else {
-		res.redirect(302, '/users/show/' + req.session.currentUser._id);
-	}
-	
+	res.render('users/login', {
+		currentUser: req.session.user
+	});	
 });
 
 // router.get('/welcome', function (req, res){
@@ -68,20 +93,13 @@ router.post('/login', function (req, res){
 	var login = req.body.user;
 	User.findOne({ username: login.username }, function (err, user){
 		if (user && user.password === login.password){
-			req.session.currentUser = user;
+			req.session.currentUser = user.username;
 			res.redirect(302, '/users/show/' + user._id);
 		} else {
-			res.redirect(302, '/users/login_error');
+			res.redirect(302, '/users/login');
 		}
-	})
+	});
 });
-
-
-router.get('/login_error', function (req, res){
-	res.render('users/login_error');
-});
-
-
 
 
 // show the user 
@@ -93,7 +111,8 @@ router.get('/show/:id', function (req, res){
 			return err;
 		} else {
 			res.render('users/show', {
-				user: foundUser
+				user: foundUser,
+				currentUser: req.session.user
 			});
 		}
 	});
@@ -108,7 +127,8 @@ router.get('/:id/edit', function (req, res){
 			console.log('something broke', err);
 		} else {
 			res.render('users/edit', {
-				user: foundUser
+				user: foundUser,
+				currentUser: req.session.user
 			});
 		}
 	});
@@ -142,6 +162,10 @@ router.delete('/:id', function (req, res){
 	});
 });
 
+router.get('/logout', function (req, res){
+	req.session.user = '';
+	res.redirect('/');
+});
 
 module.exports = router;
 
