@@ -1,49 +1,47 @@
-<form id="articleNew" action="/articles/<%=article._id%>?_method=PATCH" method="post">
-	<div class="form-group">
+<div class="row">
+
+<form action="/articles/<%=article._id%>?_method=PATCH" method="post">
+	<div class="row">
+		<div class="input-field s12">
 		<label for="articleTitle">article Title</label>
 		<input type="text"
 				name="article[title]"
-				class="form-control"
+				class="validate"
 				value="<%=article.title %>">
+		</div>
+		<div class="input-field col s6">
+
 
 		</div>
-		<div class="form-group">
-
-		<label for="articleAuthor">Author</label>
-		<input type="text"
-				name="article[_author]"
-				class="form-control"
-				value="<%=article._author%>">
-		</div>
-		<div class="form-group">
+		<div class="input-field col s12">
 			<label for="content">Article content</label>
-			<textarea class="form-control" 
+			<textarea class="materialize-textarea" 
 						rows="5"
 						name="article[content]"
-						class="form-control"><%= article.content %></textarea>
+						class="validate"><%= article.content %></textarea>
 		</div>
 
 			
-			<div class="form-group">
+			<div class="input-field col s12">
 			<label for="categories">categories</label>
 			<input type="text"
 					name="article[categories]"
 					value="<%=article.categories.join(' , ') %>"
-					class="form-control">
+					class="validate">
 					
 		</div>
-	<!-- 	<div class="form-group">
+	<!-- 	<div class="input-field col s6">
 		<label for="imageURL">Link to image</label>
 		<input type="text"
 				name="article[imageURL]"
 				placeholder="link to image">
 		</div> -->
 		
-		<!-- <div class="form-group">
+		<!-- <div class="input-field col s6">
 		<label for="upload">Upload image</label>
 		</div>
 
-		 <div class="form-group">
+		 <div class="input-field col s6">
 	    <label for="imageFileInput">File upload</label>
 	    <input type="file" id="imageFileInput"> 
 	    <p class="help-block">Upload your image</p>
@@ -51,13 +49,13 @@
 		
 	
 		
-	<!-- 	<div class="form-group">
+	<!-- 	<div class="input-field col s6">
 		<label for="date">date</label>
 		<input type="text"
 				name="article[created]"
 				placeholder=""
 				value="<%= article.created %>"
-				class="form-control">
+				class="validate">
 		</div> -->	
 	
 	<input type="submit">
@@ -71,3 +69,4 @@
    
    <input type="submit" class="btn btn-default" value="Delete Article">
   </form>	
+</div>

@@ -11,7 +11,7 @@ imageURL   : { type: String},
 content    : { type: String, trim: true},
 // edits 	   : [String],
 createdAt    : { type: Date, default: Date.now()},
-updatedAt   : { type: Date}, 
+updatedAt   : { type: Date }, 
 categories : [String]
 });
 
@@ -21,6 +21,9 @@ articleSchema.pre('save', function(next){
   if ( !this.created_at ) {
     this.created_at = now;
   }
+
+  console.log(this);
+
   next();
 });
 

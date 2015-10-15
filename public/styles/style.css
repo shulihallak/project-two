@@ -1,87 +1,60 @@
-.btn {
-    padding: 10px 10px;
-    border: 0 none;
-    font-weight: 200;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none !important;
-
-}
- 
-.btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
-}
- 
-.btn-primary {
-    background: #0099cc;
-    color: #ffffff;
-}
- 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
-}
- 
-.btn-primary:active, .btn-primary.active {
-    background: #007299;
-    box-shadow: none;
-}
-
-
-.btn.sharp {
-  border-radius:0;
-}
-
-
-#articleNew {
-	width: 50%;
-	display: inline-block;
-	left: 20%;
-	position: relative;
+body {
 
 }
 
-#userNew {
-	width: 2%;
-	display: inline-block;
-	left: 30%;
-	margin-top: 50px;
-	position: relative;
-
+.z-depth-0 {
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0);
 }
 
-.form-group > label {
-	padding-top: 30px;
-}
-.form-horizontal {
-	
-}
-.jumbotron {
+h3 {
+	font-weight: 100;
 	text-align: center;
-	background-color: lightpink;
-	width: 75%;
-	margin: 0 auto;
 }
 
-
-.panel {
-	width: 75%;
-	margin: 0 auto;
-}
-#panelColor{
-	background-color: steelblue;
-}
-
-#tableHover:hover{
-	background-color: #e8eaf6;
-	} 
 table {
-	width: 75%;
-}
-tbody td {
-	border: none !important;
-	padding: 0;
+	
+	margin: 0 auto;
 }
 
+.btn-flat {
+	
+	color: #1a237e;
+	background-color: white;
+	border: 1px solid gray;
+	text-transform: uppercase;
+}
+
+.btn {
+	background-color: #8c9eff;
+}
+.btn:hover{
+	background-color: #3949ab;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+form {
+	width: 80%;
+}
+
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}

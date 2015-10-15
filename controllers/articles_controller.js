@@ -25,13 +25,14 @@ router.get('/new', function (req, res, next){
 
 //Create arcticle
 router.post('/', function (req, res, next){
+	req.body.article._author = req.session.currentUser._id;
+
+	// req.session.currentUser <~ is the user object.
 	console.log(req.body)
 	var newArticle = new article(req.body.article);
 	console.log(newArticle);
 
 	newArticle.save(function (err, article){
-		console.log(article.createdAt);
-		console.log(article.createdAt === article.updatedAt);
 
 		if (err) {
 			console.log(err);
@@ -47,7 +48,12 @@ router.post('/', function (req, res, next){
 router.get('/show/:id', function (req, res){
 	var articleID = req.params.id;
 
-	article.findById(articleID, function (err, foundArticle){
+	article.findById(articleID)
+		.populate('_author')
+		.exec(function (err, foundArticle){
+
+		console.log(err, foundArticle);
+
 		if (err){
 			return err;
 		} else {
@@ -64,7 +70,7 @@ router.get('/:id/edit', function (req, res){
 
 	
 
-	article.findById(articleID, function (err, foundArticle, newTime){
+	article.findById(articleID, function (err, foundArticle){
 		if (err) {
 			console.log('something broke', err);
 		} else {
@@ -79,7 +85,7 @@ router.get('/:id/edit', function (req, res){
 router.patch('/:id', function (req, res){
 	var articleID = req.params.id;
 	var articleParams = req.body.article;
-	var updatedAt = articleParams.updatedAt;
+	articleParams.updatedAt = new Date();
 
 
 	article.findByIdAndUpdate(articleID, articleParams, function (err, updatedArticle) {

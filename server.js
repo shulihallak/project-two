@@ -68,6 +68,13 @@ server.use(function (req, res, next){
 	next();
 });
 
+server.get('/', function (req, res){
+	res.render('index');
+});
+
+server.get('/signin', function (req, res){
+	res.render('users/new');
+});
 
 server.get('/login', function (req, res){
 	res.render('users/login');

@@ -1,6 +1,6 @@
 var express = require('express'),
 	router  = express.Router(),
-	user = require('../models/user_model.js');
+	User = require('../models/user_model.js');
 
 
 
@@ -10,7 +10,7 @@ var express = require('express'),
 
 //Index - all users
 router.get('/', function (req, res, next){
-	user.find({}, function (err, usersArray){
+	User.find({}, function (err, usersArray){
 		if (err) {
 			console.log(err);
 		} else {
@@ -28,21 +28,28 @@ router.get('/new', function (req, res, next){
 
 //Create user
 router.post('/', function (req, res, next){
-	console.log(req.body)
-	var newUser = new user(req.body.user);
-	console.log(newUser);
+	// console.log(req.body)
+	var newUser = new User(req.body.user);
+	// console.log(newUser);
 
 	newUser.save(function (err, user){
 		if (err) {
 			console.log(err);
 		} else {
+			console.log(user);
+			req.session.currentUser = user;
 			res.redirect(302, '/users/show/' + user._id);
 		}
 	});
 });
 
 router.get('/login', function (req, res){
-	res.render('users/login');
+	if(!user){
+		res.render('users/login');
+	} else {
+		res.render('users/show/' + user._id);
+	}
+	
 });
 
 // router.get('/welcome', function (req, res){
@@ -60,9 +67,11 @@ router.get('/login_error', function (req, res){
 });
 
 router.post('/login', function (req, res){
+	console.log("TRYING TO LOGIN", req.body)
 	var login = req.body.user;
-	user.findOne({ username: login.password}, function (err, user){
+	User.findOne({ username: login.username }, function (err, user){
 		if (user && user.password === login.password){
+			req.session.currentUser = user;
 			res.redirect(302, '/users/show/' + user._id);
 		} else {
 			res.redirect(302, '/users/login_error');
@@ -76,7 +85,7 @@ router.post('/login', function (req, res){
 router.get('/show/:id', function (req, res){
 	var userID = req.params.id;
 
-	user.findById(userID, function (err, foundUser){
+	User.findById(userID, function (err, foundUser){
 		if (err){
 			return err;
 		} else {
@@ -91,7 +100,7 @@ router.get('/show/:id', function (req, res){
 router.get('/:id/edit', function (req, res){
 	var userID = req.params.id;
 
-	user.findById(userID, function (err, foundUser){
+	User.findById(userID, function (err, foundUser){
 		if (err) {
 			console.log('something broke', err);
 		} else {
@@ -107,7 +116,7 @@ router.patch('/:id', function (req, res){
 	var userID = req.params.id;
 	var userParams = req.body.user;
 
-	user.findByIdAndUpdate(userID, userParams, function (err, updatedUser) {
+	User.findByIdAndUpdate(userID, userParams, function (err, updatedUser) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -121,7 +130,7 @@ router.patch('/:id', function (req, res){
 router.delete('/:id', function (req, res){
 	var userID = req.params.id;
 
-	user.findByIdAndRemove(userID, function (err){
+	User.findByIdAndRemove(userID, function (err){
 		if (err){
 			console.log(err);
 		} else {

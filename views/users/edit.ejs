@@ -1,38 +1,46 @@
-<form id="articleNew" action="/users/<%=user._id%>?_method=PATCH" method="post">
-		
-		<div class="form-group">
+<div class="card" style='padding:20px'>
+
+<div class="row">
+
+<form  action="/users/<%=user._id%>?_method=PATCH" method="post">
+		<div class="row">
+		<div class="input-field s12">
 		<label for="Name">Author Name</label>
 		<input type="text"
 				name="user[fullName]"
-				class="form-control"
+				class="validate"
 				placeholder="<%= user.fullName %>">
 		</div>
 		
-		<div class="form-group">
+		<div class="input-field s12">
 		<label for="Username">Username</label>
 		<input type="text"
 				name="user[username]"
-				class="form-control"
+				class="validate"
 				placeholder="<%= user.username %>">
 		</div>
-		<div class="form-group">
+		<div class="input-field s12">
 		<label for="Password">Password</label>
 		<input type="text"
 				name="user[password]"
-				class="form-control"
+				class="validate"
 				placeholder="<%= user.password %>">
 		</div>		
-		<div class="form-group">
+		<div class="input-field s12">
 		<label for="Bio">Bio</label>
-		<textarea class="form-control" 
+		<textarea class="materialize-textarea" 
 					rows="3"
 					name="user[bio]">"<%= user.bio %>"</textarea>
 		</div>
-	<input type="submit">
+	  <a class="waves-effect waves-light btn z-depth-0">Submit</a>
+	</div>
+	
 </form>
  	<form action="/users/<%= user._id %>?_method=DELETE" method="post">
  	<br>
  	<br>
-        <input type="submit" class="btn btn-default" value="Delete User">
+       <a class="waves-effect waves-light btn z-depth-0">Delete User</a>
      </form>	
 </form>
+</div>
+</div>

@@ -1,6 +1,9 @@
-<h1>Article Index</h1>
-<div class="tableStyle">
-<table class="table table-hover">
+<div class="card" style="width:95%;margin:0 auto;margin-top:20px;padding:20px">
+
+<h3>Article Index</h3>
+
+<hr>
+<table class="highlight">
   	<thead>
 			<th>Title</th>
 			<th>Author</th>
@@ -16,14 +19,14 @@
 	<tbody id="tableHover">	
 		<tr>
 			<td><%= article.title %> </td>
-			<td> <%= article._author %></td>
+			<td> <%= article._author.fullName %></td>
 			<td> <%= article.categories.join(' & ') %></td>
 			<td><%=article.createdAt %></td>
 			<td><%= article.updatedAt %></td>
-			<td><a class="btn btn-default" href="/articles/show/<%= article._id %>" role="button">Go to article</a>
+			<td><a class="waves-effect waves z-depth-0" href="/articles/show/<%= article._id %>" role="button">Go to article</a>
 			</td>
 
-			<td><a class="btn btn-default" href="/articles/<%= article._id %>/edit" role="button">Edit</a>
+			<td><a class="btn btn-default z-depth-0" href="/articles/<%= article._id %>/edit" role="button">Edit</a>
 			</td>
 		</tr>
 	
@@ -35,6 +38,10 @@
 </table>
 
 </div>
+<div style="margin-left:30px;margin-top:10px;">
+<a class="btn btn-default z-depth-0" href="/articles/new" role="button">Create New Article</a>
 
-<a class="btn btn-primary" href="/articles/new" role="button">Create Article</a>
+</div>
+
+
 

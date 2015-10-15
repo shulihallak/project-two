@@ -1,38 +1,40 @@
-<form  id="articleNew" action="/articles" method="post">
-      <div class="form-group">
+<style>
+form {
+	margin-top: 100px
+}
+</style>
+        
+<div class="row">
+<form  class="col s12" action="/articles" method="post">
+      <div class="row">
 
-     	<label for="articleTitle">Title</label>
-		<input 	class="form-control" 
-				type="text"
-				name="article[title]"
-				id="input" 
-				placeholder="">		
+	     <div class="input-field col s6">
+          <input 	class="validate"
+	          		type="text"
+					name="article[title]"
+					id="input" 
+					placeholder="">	
+          <label for="first_name">Title</label>
         </div>
-  	<br>
-        <div class="form-group">
-        <label for="articleAuthor">Author</label>
-		<input type="text"
-				name="article[_author]"
-				class="form-control">		
+
+        <div class="input-field col s12">
+         <textarea id="textarea1" 
+         			class="materialize-textarea"
+         			rows="10"
+         			name="article[content]"></textarea>
+          <label for="textarea1">Textarea</label>		
         </div>
-      <br>
-        <div class="form-group">
-        <label for="content">Content</label>
-		<textarea class="form-control" 
-					rows="5"
-					name="article[content]"></textarea>	
-        </div>
-      <br>
-        <div class="form-group">
+      
+        <div class="input-field col s12">
         <label for="categories">Categories</label>	
 		<input type="text"
 				name="article[categories]"
-				class="form-control" 
+				class="validate"
 				placeholder="">
 		 	
         </div>
-
-        <input type="submit">
+<br>
+        <button class="btn waves-effect waves-light z-depth-0" type="submit" name="action" style="margin-top:40px;">Submit</button>
   </div>
 </form>
 
