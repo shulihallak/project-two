@@ -11,31 +11,11 @@ var express 		= require('express'),
 	expressLayouts  = require('express-ejs-layouts'),
 	session 		= require('express-session'),
 	cookieParser    = require('cookie-parser'),
-	flash 			= require('connect-flash'),
-	passport        = require('passport'),
-	Strategy 		= require('passport-local').Strategy,
-	timestamps		= require('mongoose-timestamp');
+	flash 			= require('connect-flash');
 	
-
-
-// passport.use(new Strategy(
-// 	function (username, passord, cb){
-// 		user.findByUsername(username, function (err, user){
-// 			if (err) { return cb(err); }
-// 			if (!user) { return cb(null, false); }
-// 			if (user.password != password) { return cb(null, false); }
-// 			return cb(null, user);
-// 		});
-// 	}));
-
-// passport.deserializeUser(function(id, cb) {
-//   user.findById(id, function (err, user) {
-//     if (err) { return cb(err); }
-//     cb(null, user);
-//   });
-// });
-
-
+	
+	
+	
 server.use(bodyParser.urlencoded({
 	extended: true
 }));
@@ -60,12 +40,19 @@ server.use(expressLayouts);
 
 
 
-
 server.use(function (req, res, next){
 	console.log(req.session);
 	console.log(req.body);
 	console.log(req.params);
 	next();
+});
+
+server.use(function(req, res, next) {
+  // res.locals.requested = req.originalUrl;
+  // res.locals.marked = marked;
+  res.locals.userId = req.session.userId || "guest";
+  res.locals.userName = req.session.userName || "Guest";
+  next();
 });
 
 server.get('/', function (req, res){
@@ -80,9 +67,9 @@ server.get('/login', function (req, res){
 	res.render('users/login');
 });
 
-server.get('/login', function (req, res){
-	res.render('views/users/login');
-});
+// server.get('/login', function (req, res){
+// 	res.render('views/users/login');
+// });
 
 // server.all('/users', requireAuthentication);
 

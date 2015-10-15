@@ -1,4 +1,3 @@
-var timestamps  = require('mongoose-timestamp');
 var mongoose 	= require('mongoose');
 var Schema 		= mongoose.Schema;
 
@@ -6,7 +5,7 @@ var Schema 		= mongoose.Schema;
 var articleSchema = new Schema({
 title 	   : { type: String, required: true},
 // _author    : { type: Schema.ObjectId, ref: 'user'},
-_author	   : { type: String, ref: 'user'},
+_author	   : { type: String, ref: 'User'},
 imageURL   : { type: String},
 content    : { type: String, trim: true},
 // edits 	   : [String],

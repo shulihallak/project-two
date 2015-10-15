@@ -1,11 +1,26 @@
-//materialize jquery parallax init
-//code reuse from Materialize
+//scripts copied from Materialize documentation
 
-(function($){
-  $(function(){
 
-    $('.button-collapse').sideNav();
-    $('.parallax').parallax();
+  // Initialize collapse button
+  $(".button-collapse").sideNav();
+  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+  //$('.collapsible').collapsible();
 
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+       
+// Show sideNav
+$('.button-collapse').sideNav('show');
+// Hide sideNav
+$('.button-collapse').sideNav('hide');
+
+
+//scrollspy
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });

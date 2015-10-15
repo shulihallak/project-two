@@ -44,10 +44,10 @@ router.post('/', function (req, res, next){
 });
 
 router.get('/login', function (req, res){
-	if(!user){
+	if(!req.session.currentUser){
 		res.render('users/login');
 	} else {
-		res.render('users/show/' + user._id);
+		res.redirect(302, '/users/show/' + req.session.currentUser._id);
 	}
 	
 });
@@ -62,9 +62,6 @@ router.get('/login', function (req, res){
 // 	}
 // });
 
-router.get('/login_error', function (req, res){
-	res.render('users/login_error');
-});
 
 router.post('/login', function (req, res){
 	console.log("TRYING TO LOGIN", req.body)
@@ -80,12 +77,18 @@ router.post('/login', function (req, res){
 });
 
 
+router.get('/login_error', function (req, res){
+	res.render('users/login_error');
+});
+
+
+
 
 // show the user 
 router.get('/show/:id', function (req, res){
-	var userID = req.params.id;
+	var userId = req.params.id;
 
-	User.findById(userID, function (err, foundUser){
+	User.findById(userId, function (err, foundUser){
 		if (err){
 			return err;
 		} else {

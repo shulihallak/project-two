@@ -25,7 +25,7 @@ router.get('/new', function (req, res, next){
 
 //Create arcticle
 router.post('/', function (req, res, next){
-	req.body.article._author = req.session.currentUser._id;
+	req.body.article._author = req.session.currentUser;
 
 	// req.session.currentUser <~ is the user object.
 	console.log(req.body)
