@@ -1,32 +1,88 @@
 
-<div class="container">
-<div class="section">
 
       <!--   Icon Section   -->
   
-      <div class="row">
-      <a href="/users/login">
-        <div class="col s12 m6">
-          <div class="icon-block">
-            <h2 class="center indigo-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Login</h5>
+<div class="row">
+  <a href="/users/login"></a>
+    <div class="col s12 m6">
+      <div class="icon-block">
+          <h5 class="center">Login</h5>
+         
+          <div class="row">
+<form action="/users/login" method="post" class="col s12">
 
-            <p class="light center">Registered Users Sign in Here!</p>
-
+  <div class="input-field col s6">
+    <label class="label" for="username"></label>
+    <input  type="text" 
+            name="user[username]" 
+            class="validate" 
+            placeholder="Username">
   </div>
+
+  <div class="input-field col s6">
+    <label class="label" for="password"></label>
+    <input  type="password" 
+          name="user[password]" 
+            class="validate" 
+            placeholder="Password">
+  </div>
+
+  <button class="btn waves-effect waves-light z-depth-0" type="submit" name="action" style="margin-top:40px;">
+  Log in</button>
+
+</form>
 </div>
-</a>
-<a href="/users/new">
-        <div class="col s12 m6">
+</div>
+</div>
+
+
+<!-- <a href="/users/new"></a> -->
+<div class="col s12 m6">
           <div class="icon-block">
-            <h2 class="center indigo-text"><i class="material-icons">group</i></h2>
+            <h2 class="center indigo-text"></h2>
             <h5 class="center">New Users</h5>
 
-            <p class="light center">Not registered? </p>
-            <p class="light center">No problem! Sign up for an account</p>
+        
+<div class="row">
+<form  class="col s12" action="/users" method="post">
+   <div class="row">
+    <div class="input-field col s6">
+    <label for="fullName">Name</label>
+          <input  class="validate"
+                type="text"
+          name="user[fullName]"
+          id="input" 
+          placeholder=""> 
+          
+    </div>
+     <div class="input-field col s6">
+          <label for="userUsername">Username</label>
+          <input  class="validate"
+                type="text"
+          name="user[username]"
+          id="input" 
+          placeholder=""> 
+    </div>
+     <div class="input-field col s6">
+        <label for="password">Password</label>  
+    <input type="password"
+        name="user[password]"
+        class="validate"
+        placeholder="">
+      
+    </div>
+    <br>
+    <br>
+    <div>
+        <button class="btn waves-effect waves-light z-depth-0" type="submit" name="action" style="margin-top:40px;">Submit
+        </button>
+    </div>
+  </div>
+ </form>
+</div>
           </div>
         </div>
 
-</a>
+</div>
 
 </div>
