@@ -35,9 +35,9 @@
         <li> <a href="#">
         <% var d = new Date(); var time = d.getHours(); %>
         <% if ((time) >= 12 ) { %>
-          Good Evening, 
+          Good Morning, 
         <% } else {%>
-          Good Morning,
+          Good Evening,
          <% }%>
          <%= userId || 'Guest'%> </a> </li>
         <% if (user) { %>
