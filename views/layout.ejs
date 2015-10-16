@@ -34,10 +34,10 @@
         <li><a href="/users">Users</a></li>
         <li> <a href="#">
         <% var d = new Date(); var time = d.getHours(); %>
-        <% if (time <= 12 ) { %>
-          Good Morning, 
+        <% if ((time-4) >= 12 ) { %>
+          Good Evening, 
         <% } else {%>
-          Good Evening,
+          Good Morning,
          <% }%>
          <%= userId || 'Guest'%> </a> </li>
         <% if (user) { %>
