@@ -6,7 +6,7 @@ var articleSchema = new Schema({
 title 	   : { type: String, required: true},
 // _author    : { type: Schema.ObjectId, ref: 'user'},
 author	   : { type: String, required: true},
-imageURL   : { type: String},
+imageNo    : { type: String},
 content    : { type: String, trim: true},
 // edits 	   : [String],
 createdAt    : { type: Date, default: Date.now()},

@@ -49,7 +49,6 @@ a {
 }
 
 
-
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -63,5 +62,9 @@ form {
 }
 ul .tabs {
 	color: indigo;
+}
+a#account {
+	background-color: none;
+	border: none;
 }
 
