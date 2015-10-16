@@ -56,27 +56,19 @@ server.use(function (req, res, next) {
 });
 
 
-function requireLogin(req, res, next){
-	if(!req.user) {
-		res.redirect('/login');
-	} else {
-		next();
-	}
-};
-
 server.get('/', function (req, res){
 	res.render('index', {
 		user: req.session.user
 	});
 });
 
-server.get('/signin', function (req, res){
-	res.render('users/new');
-});
+// server.get('/signin', function (req, res){
+// 	res.render('users/new');
+// });
 
-server.get('/login', function (req, res){
-	res.render('users/login');
-});
+// server.get('/login', function (req, res){
+// 	res.render('users/login');
+// });
 
 // server.get('/login', function (req, res){
 // 	res.render('views/users/login');
@@ -95,5 +87,4 @@ server.use('/articles', articleController);
 
 var userController = require('./controllers/users_controller.js');
 server.use('/users', userController);
-
 
