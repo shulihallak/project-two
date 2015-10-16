@@ -16,12 +16,13 @@
 
 <link rel="stylesheet" href="/styles/style.css">
 
+
   </head>
   <header>
 
   <nav class="white z-depth-1" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="/" class="brand-logo">Interconnect</a>
+      <a id="logo-container" href="/articles" class="brand-logo">Interconnect</a>
       <ul class="right hide-on-med-and-down">
       <% if(!user) { %>
         <li><a href="/users/login">Log in</a></li>
@@ -30,53 +31,18 @@
 
         <li><a href="/articles">Articles</a></li>
         <li><a href="/users">Users</a></li>
-        <li> <a href="#">Welcome, <%= userId || 'Guest'%> </a> </li>
+        <li> <a href="#">
+        <% var d = new Date(); var time = d.getHours(); %>
+        <% if (time >= 12 ) { %>
+          Good Evening, 
+        <% } else {%>
+          Good Morning,
+         <% }%>
+         <%= userId || 'Guest'%> </a> </li>
         <% if (user) { %>
           <li><a href="/users/logout">Logout</a></li>
         <% } %>
       </ul>
-
-   <!--    <ul id="nav-mobile" class="side-nav">
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/users">Users</a></li>
-      </ul>
-         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-    </div> -->
-  
-
-
-<!--   <ul id="slide-out" class="side-nav">
-  <li><a href="/users/login">Log in</a></li>
-        <li><a href="/users/new">Sign up</a></li>
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/users">Users</a></li>
-
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-</nav> -->
-
-
-<!-- <div class="navbar-fixed"> 
-    <nav class="z-depth-0">
-  <div class="nav-wrapper indigo darken-1">
-     <div class="navbar-header indigo darken-1">
-   
-      <a class="brand-logo" href="#">Wiki-App</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-    
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/users">Users</a></li>
-       
-      </ul>
-</div> -->
-     
-  <!--     <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button> -->
-    <!--   </form> -->
-    
     </div>
   </div>
   </nav>
@@ -85,8 +51,6 @@
 
     
     <%- body %>
-
-
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
